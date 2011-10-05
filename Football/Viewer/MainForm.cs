@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Football;
 
 namespace Viewer
 {
@@ -6,7 +7,16 @@ namespace Viewer
     {
         public MainForm()
         {
+            var builder = new RandomTeamBuilder();
+
+            var team = builder.Build();
+
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, System.EventArgs e)
+        {
+
         }
     }
 }
