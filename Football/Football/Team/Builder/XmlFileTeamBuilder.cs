@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Football
+namespace Football.Team.Builder
 {
     /// <summary>
     /// Team builder class.

@@ -1,4 +1,4 @@
-﻿namespace Football
+﻿namespace Football.Team
 {
     /// <summary>
     /// Abstraction class of football team.
@@ -27,6 +27,16 @@
         {
             Name = name;
             Players = players;
+
+        } // End
+        //-----------------------------------------------------------------------------
+
+        /// <summary>
+        /// Move this team.
+        /// </summary>
+        /// <param name="dt">Time interval for moving.</param>
+        public void Move(double dt)
+        {
 
         } // End
         //-----------------------------------------------------------------------------

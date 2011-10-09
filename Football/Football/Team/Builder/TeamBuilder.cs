@@ -1,4 +1,4 @@
-﻿namespace Football
+﻿namespace Football.Team.Builder
 {
     /// <summary>
     /// Base abstract team builder class.

@@ -34,14 +34,18 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ball.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerSkills.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RandomTeamBuilder.cs" />
-    <Compile Include="Team.cs" />
-    <Compile Include="TeamBuilder.cs" />
-    <Compile Include="XmlFileTeamBuilder.cs" />
+    <Compile Include="Team\Builder\RandomTeamBuilder.cs" />
+    <Compile Include="Team\Strategy.cs" />
+    <Compile Include="Team\Team.cs" />
+    <Compile Include="Team\Builder\TeamBuilder.cs" />
+    <Compile Include="Team\Builder\XmlFileTeamBuilder.cs" />
+    <Compile Include="Vector2D.cs" />
+    <Compile Include="Vector3D.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

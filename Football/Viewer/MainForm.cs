@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using Football;
+using Football.Team.Builder;
 
 namespace Viewer
 {
@@ -9,7 +9,11 @@ namespace Viewer
         {
             var builder = new RandomTeamBuilder();
 
-            var team = builder.Build();
+            var team1 = builder.Build();
+            var team2 = builder.Build();
+            var game = new Football.Game(team1, team2);
+
+            game.Run();
 
             InitializeComponent();
         }

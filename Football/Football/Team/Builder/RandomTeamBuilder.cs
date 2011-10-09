@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Football
+namespace Football.Team.Builder
 {
     /// <summary>
     /// Team builder class.
@@ -8,6 +8,12 @@ namespace Football
     /// </summary>
     public class RandomTeamBuilder : TeamBuilder
     {
+        /// <summary>
+        /// Random generator.
+        /// </summary>
+        static readonly Random Random = new Random();
+        //-----------------------------------------------------------------------------
+
         /// <summary>
         /// Builds the new team.
         /// </summary>
@@ -87,32 +93,41 @@ namespace Football
 
             var teamNames = new[]
             {
-                "Реал", "Барселона", "Спартак"
+                "Авангард", "Академия", "Алания", "Алания-Д", "Амкар", "Амур-2010", "Ангушт", "Анжи",
+                "Астрахань", "Балтика", "Биолог-Новокубанск", "Витязь", "Волга", "Волгарь-Газпром",
+                "Волочанин-Ратмир", "Газовик", "Горняк", "Губкин", "Дагдизель", "Динамо", "Днепр",
+                "Дружба", "Енисей", "Звезда", "Зенит", "Знамя", "Иртыш", "Истра", "Калуга", "КАМАЗ",
+                "Карелия", "Краснодар", "Крылья", "Кубань", "Кузбасс", "Локомотив", "Локомотив-2",
+                "Луч-Энергия", "Машук-КМВ", "Металлург", "Металлург-Кузбасс", "Металлург-Оскол", "МИТОС",
+                "Мордовия", "Мостовик-Приморье", "Нефтехимик", "Нижний", "Носта", "Октан", "Олимпия",
+                "Петротрест", "Подолье", "Псков-747", "Радиан-Байкал", "Ростов", "Ротор", "Рубин", "Рубин-2",
+                "Русичи", "Салют", "Сатурн-2", "Сахалин", "Север", "Сибирь", "Сибирь-2", "Сибиряк", "СКА",
+                "СКА-Энергия", "Славянский", "Смена", "Сокол", "Спартак-Нальчик", "Спартак", "Сызрань-2003",
+                "Таганрог", "Текстильщик", "Терек", "Томь", "Торпедо", "Тюмень", "Урал", "Уфа", "Факел", "ФАЮР",
+                "Химик", "Химки", "ЦСКА", "Челябинск", "Черноморец", "Чита", "Шексна", "Шинник", "Энергия", "Якутия"
             };
-            
-            var random = new Random();
 
             // Build list of players.
-            var playersCount = random.Next(10, 30);
+            var playersCount = Random.Next(10, 30);
             var players = new Player[playersCount];
             for (var i = 0; i < playersCount; i++)
             {
-                var playerName = playerNames[random.Next(0, playerNames.Length - 1)];
-                var playerSurname = playerSurnames[random.Next(0, playerSurnames.Length - 1)];
+                var playerName = playerNames[Random.Next(0, playerNames.Length - 1)];
+                var playerSurname = playerSurnames[Random.Next(0, playerSurnames.Length - 1)];
                 var playerFullName = string.Format("{0} {1}", playerSurname, playerName);
-                var playerNumber = random.Next(0, 100);
+                var playerNumber = Random.Next(0, 100);
 
                 var playerSkills = new PlayerSkills
                 {
-                    Power = random.Next(PlayerSkills.MinSkillValue, PlayerSkills.MaxSkillValue),
-                    Endurance = random.Next(PlayerSkills.MinSkillValue, PlayerSkills.MaxSkillValue),
-                    Speed = random.Next(PlayerSkills.MinSkillValue, PlayerSkills.MaxSkillValue)
+                    Power = Random.Next(PlayerSkills.MinSkillValue, PlayerSkills.MaxSkillValue),
+                    Endurance = Random.Next(PlayerSkills.MinSkillValue, PlayerSkills.MaxSkillValue),
+                    Speed = Random.Next(PlayerSkills.MinSkillValue, PlayerSkills.MaxSkillValue)
                 };
 
                 players[i] = new Player(playerNumber, playerFullName, playerSkills);
             }
 
-            var teamName = teamNames[random.Next(0, teamNames.Length - 1)];
+            var teamName = teamNames[Random.Next(0, teamNames.Length - 1)];
             return new Team(teamName, players);
 
         } // End
