@@ -5,6 +5,7 @@
     /// </summary>
     class Ball
     {
+        #region Fields
         /// <summary>
         /// Current coordinates of ball.
         /// In meters.
@@ -17,7 +18,8 @@
         /// In meters per second.
         /// </summary>
         private Vector3D _velocity = new Vector3D();
-        //-----------------------------------------------------------------------------
+        //----------------------------------------------------------------------------- 
+        #endregion
         //-----------------------------------------------------------------------------
 
         /// <summary>
@@ -35,6 +37,8 @@
             // The ball can not fall below zero.
             if (_coodinates.Z < 0)
             {
+                //TODO: Dissipation of energy.
+                _velocity.Z = -_velocity.Z * 0.5;
                 _coodinates.Z = 0;
             }
 

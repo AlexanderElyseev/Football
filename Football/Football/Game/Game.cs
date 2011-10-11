@@ -1,6 +1,12 @@
-﻿namespace Football
+﻿using System;
+using System.Threading;
+
+namespace Football.Game
 {
-    public class Game
+    /// <summary>
+    /// Abstraction class of football game.
+    /// </summary>
+    public partial class Game
     {
         /// <summary>
         /// Home team of current team.
@@ -31,25 +37,6 @@
             _homeTeam = homeTeam;
             _visitingTeam = visitingTeam;
             _ball = new Ball();
-
-        } // End
-        //-----------------------------------------------------------------------------
-
-        /// <summary>
-        /// Run this game.
-        /// </summary>
-        public void Run()
-        {
-            const double dt = 0.1;
-            double totalTime = 0;
-            for (var step = 0; step < 1000; step++)
-            {
-                _homeTeam.Move(dt);
-                _visitingTeam.Move(dt);
-                _ball.Move(dt);
-
-                totalTime += dt;
-            }
 
         } // End
         //-----------------------------------------------------------------------------

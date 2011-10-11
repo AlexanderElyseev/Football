@@ -35,7 +35,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ball.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="Game\Game.Actions.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\Game.Subscriber.cs" />
+    <Compile Include="Game\GameStatus.cs" />
+    <Compile Include="Game\IGameSubscriber.cs" />
+    <Compile Include="Game\SubscriberData.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerSkills.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
