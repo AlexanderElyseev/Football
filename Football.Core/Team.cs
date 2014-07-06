@@ -1,11 +1,17 @@
 ﻿namespace Football.Core
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.Contracts;
 
-    internal sealed class Team
+    public sealed class Team
     {
         private readonly Player[] _players;
+
+        public IEnumerable<Player> Players
+        {
+            get { return _players; }
+        }
 
         public Team(Player[] players)
         {

@@ -3,7 +3,7 @@
     using System;
     using System.Diagnostics.Contracts;
 
-    internal sealed class Player
+    public sealed class Player
     {
         private string _name;
 
