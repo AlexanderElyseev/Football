@@ -70,7 +70,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Football\Football.Core.csproj">
+    <ProjectReference Include="..\Football.Core\Football.Core.csproj">
       <Project>{AA9EF7F9-CCA9-4BAD-B697-333EC212C5FB}</Project>
       <Name>Football.Core</Name>
     </ProjectReference>
