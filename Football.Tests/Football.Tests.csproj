@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StandardTeamValidatorTest.cs" />
+    <Compile Include="RandomTeamBuilderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Football.Core\Football.Core.csproj">

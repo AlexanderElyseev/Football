@@ -10,7 +10,7 @@
         public Player(string name)
         {
             Contract.Requires<ArgumentNullException>(name != null);
-            Contract.Requires<ArgumentException>(name == string.Empty);
+            Contract.Requires<ArgumentException>(name != string.Empty);
 
             _name = name;
         }
