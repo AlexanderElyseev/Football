@@ -110,6 +110,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ball.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="ITeamBuilder.cs" />
     <Compile Include="ITeamValidator.cs" />

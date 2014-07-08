@@ -11,16 +11,24 @@
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ConstructorSecondTeamNullTest()
+        public void ConstructorFirstTeamNullTest()
         {
-            new Game(new Team(new Player[0]), null);
+            new Game(null, new Team(new Player[0]), new Ball());
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void ConstructorFirstTeamNullTest()
+        public void ConstructorSecondTeamNullTest()
         {
-            new Game(null, new Team(new Player[0]));
+            new Game(new Team(new Player[0]), null, new Ball());
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ConstructorBallNullTest()
+        {
+            new Game(new Team(new Player[0]), new Team(new Player[0]), null);
+        }
+
     }
 }
