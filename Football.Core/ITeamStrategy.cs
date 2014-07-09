@@ -2,6 +2,6 @@
 {
     public interface ITeamStrategy
     {
-         
+        IPlayerStrategy GetPlayerStrategy(Player player);
     }
 }

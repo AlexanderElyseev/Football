@@ -8,16 +8,25 @@
     {
         private readonly Player[] _players;
 
-        public IEnumerable<Player> Players
+        private readonly ITeamStrategy _strategy;
+
+        public IReadOnlyCollection<Player> Players
         {
             get { return _players; }
         }
 
-        public Team(Player[] players)
+        public ITeamStrategy Strategy
+        {
+            get { return _strategy; }
+        }
+
+        public Team(Player[] players, ITeamStrategy strategy)
         {
             Contract.Requires<ArgumentNullException>(players != null);
+            Contract.Requires<ArgumentNullException>(strategy != null);
 
             _players = players;
+            _strategy = strategy;
         }
     }
 }
