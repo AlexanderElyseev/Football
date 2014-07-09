@@ -31,9 +31,12 @@
 
         public void Run()
         {
-            Dictionary<Player, PlayerPosition> playerPositions = InitPlayersPositions();
             BallPosition ballPosition = new BallPosition();
 
+            Dictionary<Player, PlayerPosition> playerPositions = new Dictionary<Player, PlayerPosition>();
+            InitPlayersPositions(playerPositions, _firstTeam);
+            InitPlayersPositions(playerPositions, _secondTeam);
+            
             IGameState gameState = null;
 
             Dictionary<Player, PlayerAction> playerActions = new Dictionary<Player, PlayerAction>();
@@ -42,37 +45,24 @@
                 BuilPlayerActions(playerActions, _firstTeam, gameState);
                 BuilPlayerActions(playerActions, _secondTeam, gameState);
                 
-                RunPlayerActions(playerActions, playerPositions, ref ballPosition);
+                var stepResult = _runner.Step(playerActions, playerPositions, ref ballPosition);
+                if (!stepResult)
+                    break;
 
                 playerActions.Clear();
             }
         }
 
-        private Dictionary<Player, PlayerPosition> InitPlayersPositions()
+        private static void InitPlayersPositions(Dictionary<Player, PlayerPosition> playerPositions, Team team)
         {
-            Dictionary<Player, PlayerPosition> playerPositions = new Dictionary<Player, PlayerPosition>();
-
-            foreach (Player player in _firstTeam.Players)
+            foreach (Player player in team.Players)
                 playerPositions[player] = new PlayerPosition();
-
-            foreach (Player player in _secondTeam.Players)
-                playerPositions[player] = new PlayerPosition();
-
-            return playerPositions;
         }
         
         private static void BuilPlayerActions(IDictionary<Player, PlayerAction> playerActions, Team team, IGameState gameState)
         {
             foreach (Player player in team.Players)
                 playerActions.Add(player, team.Strategy.GetPlayerStrategy(player).GetAction(gameState));
-        }
-
-        private static void RunPlayerActions(IDictionary<Player, PlayerAction> playerActions, Dictionary<Player, PlayerPosition> playerPositions, ref BallPosition ballPosition)
-        {
-            foreach (var playerAction in playerActions)
-            {
-                
-            }
         }
     }
 }

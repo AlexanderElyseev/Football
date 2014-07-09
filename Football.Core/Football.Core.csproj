@@ -113,11 +113,13 @@
     <Compile Include="Ball.cs" />
     <Compile Include="BallPosition.cs" />
     <Compile Include="BallSpeed.cs" />
+    <Compile Include="ITeamStrategy.cs" />
+    <Compile Include="PlayerAction.cs" />
     <Compile Include="TeamSpeed.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IGameRunner.cs" />
     <Compile Include="ITeamBuilder.cs" />
-    <Compile Include="ITeamStrategy.cs" />
+    <Compile Include="IPlayerStrategy.cs" />
     <Compile Include="ITeamValidator.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerPosition.cs" />
