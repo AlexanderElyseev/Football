@@ -4,6 +4,6 @@
 
     public interface IGameRunner
     {
-        bool Step(IDictionary<Player, PlayerAction> playerActions, Dictionary<Player, PlayerPosition> playerPositions, ref BallPosition ballPosition);
+        bool Step(GamePosition playerActions, GameAction playerPositions, ref BallPosition ballPosition);
     }
 }

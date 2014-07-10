@@ -2,6 +2,6 @@
 {
     public interface IPlayerStrategy
     {
-        PlayerAction GetAction(IGameState state);
+        PlayerAction GetAction(IGameRunnerState runnerState);
     }
 }
