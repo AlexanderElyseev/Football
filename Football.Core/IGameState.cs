@@ -1,6 +1,6 @@
 ﻿namespace Football.Core
 {
-    public interface IGameRunnerState
+    public interface IGameState
     {
         PlayerSpeed GetPlayerSpeed(Player player);
 

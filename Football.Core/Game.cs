@@ -9,7 +9,7 @@
     {
         private readonly IGameRunner _runner;
 
-        private readonly IGameRunnerStateBuilder _gameRunnerStateBuilder;
+        private readonly IGameRunnerStateBuilder _gameStateBuilder;
 
         private readonly Team _firstTeam;
 
@@ -17,17 +17,17 @@
 
         private readonly Ball _ball;
 
-        public Game(IGameRunner runner, IGameRunnerStateBuilder gameRunnerStateBuilder, Team firstTeam, Team secondTeam, Ball ball)
+        public Game(IGameRunner runner, IGameRunnerStateBuilder gameStateBuilder, Team firstTeam, Team secondTeam, Ball ball)
         {
             Contract.Requires<ArgumentNullException>(runner != null);
-            Contract.Requires<ArgumentNullException>(gameRunnerStateBuilder != null);
+            Contract.Requires<ArgumentNullException>(gameStateBuilder != null);
 
             Contract.Requires<ArgumentNullException>(firstTeam != null);
             Contract.Requires<ArgumentNullException>(secondTeam != null);
             Contract.Requires<ArgumentNullException>(ball != null);
 
             _runner = runner;
-            _gameRunnerStateBuilder = gameRunnerStateBuilder;
+            _gameStateBuilder = gameStateBuilder;
             _firstTeam = firstTeam;
             _secondTeam = secondTeam;
             _ball = ball;
@@ -38,19 +38,21 @@
             BallPosition ballPosition = InitBallPosition(_ball);
             TeamPosition firstTeamPosition = InitTeamPosition(_firstTeam);
             TeamPosition secondTeamPosition = InitTeamPosition(_secondTeam);
-            GamePosition gamePosition = new GamePosition(firstTeamPosition, secondTeamPosition, ballPosition);
+            GamePosition currentPosition = new GamePosition(firstTeamPosition, secondTeamPosition, ballPosition);
 
             while (true)
             {
-                IGameRunnerState gameRunnerState = _gameRunnerStateBuilder.BuildState(gamePosition);
+                IGameState gameState = _gameStateBuilder.BuildState(currentPosition);
 
-                TeamAction firstTeamAction = BuildTeamAction(_firstTeam, gameRunnerState);
-                TeamAction secondTeamAction = BuildTeamAction(_secondTeam, gameRunnerState);
+                TeamAction firstTeamAction = BuildTeamAction(_firstTeam, gameState);
+                TeamAction secondTeamAction = BuildTeamAction(_secondTeam, gameState);
                 GameAction gameAction = new GameAction(firstTeamAction, secondTeamAction);
 
-                bool stepResult = _runner.Step(gamePosition, gameAction, ref ballPosition);
-                if (!stepResult)
+                GamePosition nextPosition = _runner.Step(currentPosition, gameAction);
+                if (nextPosition == null)
                     break;
+
+                currentPosition = nextPosition;
             }
         }
 
@@ -68,11 +70,11 @@
             return new TeamPosition(playerPositions);
         }
         
-        private static TeamAction BuildTeamAction(Team team, IGameRunnerState gameRunnerState)
+        private static TeamAction BuildTeamAction(Team team, IGameState gameState)
         {
             IDictionary<Player, PlayerAction> playerActions = new Dictionary<Player, PlayerAction>(team.Players.Count);
             foreach (Player player in team.Players)
-                playerActions.Add(player, team.Strategy.GetPlayerStrategy(player).GetAction(gameRunnerState));
+                playerActions.Add(player, team.Strategy.GetPlayerStrategy(player).GetAction(gameState));
 
             return new TeamAction(playerActions);
         }

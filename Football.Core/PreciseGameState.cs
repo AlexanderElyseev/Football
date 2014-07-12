@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
 
-    class PreciseGameRunnerState : IGameRunnerState
+    class PreciseGameState : IGameState
     {
         private readonly Dictionary<Player, PlayerPosition> _playerPositions;
 
@@ -14,7 +14,7 @@
 
         private readonly BallSpeed _ballSpeed;
 
-        PreciseGameRunnerState(
+        PreciseGameState(
             Dictionary<Player, PlayerPosition> playerPositions,
             Dictionary<Player, PlayerSpeed> playerSpeeds,
             BallPosition ballPosition,

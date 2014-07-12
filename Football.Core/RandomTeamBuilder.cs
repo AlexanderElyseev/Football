@@ -4,7 +4,7 @@
     {
         public Team BuildTeam()
         {
-            return new Team(new Player[11]);
+            return new Team(new Player[11], null);
         }
     }
 }

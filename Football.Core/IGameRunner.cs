@@ -1,9 +1,10 @@
 ﻿namespace Football.Core
 {
-    using System.Collections.Generic;
+    using System.Diagnostics.Contracts;
 
+    [ContractClass(typeof(GameRunnerContract))]
     public interface IGameRunner
     {
-        bool Step(GamePosition playerActions, GameAction playerPositions, ref BallPosition ballPosition);
+        GamePosition Step(GamePosition currentPosition, GameAction gameAction);
     }
 }

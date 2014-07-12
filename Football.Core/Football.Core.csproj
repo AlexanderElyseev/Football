@@ -113,12 +113,14 @@
     <Compile Include="Ball.cs" />
     <Compile Include="BallPosition.cs" />
     <Compile Include="BallSpeed.cs" />
+    <Compile Include="GameRunnerContract.cs" />
+    <Compile Include="SimpleGameRunner.cs" />
     <Compile Include="GameAction.cs" />
     <Compile Include="GamePosition.cs" />
     <Compile Include="IGameRunnerStateBuilder.cs" />
     <Compile Include="ITeamStrategy.cs" />
     <Compile Include="PlayerAction.cs" />
-    <Compile Include="PreciseGameRunnerState.cs" />
+    <Compile Include="PreciseGameState.cs" />
     <Compile Include="TeamAction.cs" />
     <Compile Include="TeamPosition.cs" />
     <Compile Include="TeamSpeed.cs" />
@@ -131,7 +133,7 @@
     <Compile Include="PlayerPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomTeamBuilder.cs" />
-    <Compile Include="IGameRunnerState.cs" />
+    <Compile Include="IGameState.cs" />
     <Compile Include="PlayerSpeed.cs" />
     <Compile Include="StandardTeamValidator.cs" />
     <Compile Include="Team.cs" />

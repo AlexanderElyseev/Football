@@ -2,6 +2,6 @@
 {
     public interface IGameRunnerStateBuilder
     {
-        IGameRunnerState BuildState(GamePosition gamePosition);
+        IGameState BuildState(GamePosition gamePosition);
     }
 }
