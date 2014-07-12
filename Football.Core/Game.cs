@@ -11,13 +11,15 @@
 
         private readonly IGameRunnerStateBuilder _gameStateBuilder;
 
+        private readonly Field _field;
+
         private readonly Team _firstTeam;
 
         private readonly Team _secondTeam;
 
         private readonly Ball _ball;
 
-        public Game(IGameRunner runner, IGameRunnerStateBuilder gameStateBuilder, Team firstTeam, Team secondTeam, Ball ball)
+        public Game(IGameRunner runner, IGameRunnerStateBuilder gameStateBuilder, Field field, Team firstTeam, Team secondTeam, Ball ball)
         {
             Contract.Requires<ArgumentNullException>(runner != null);
             Contract.Requires<ArgumentNullException>(gameStateBuilder != null);
@@ -28,6 +30,7 @@
 
             _runner = runner;
             _gameStateBuilder = gameStateBuilder;
+            _field = field;
             _firstTeam = firstTeam;
             _secondTeam = secondTeam;
             _ball = ball;
