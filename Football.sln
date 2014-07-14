@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Viewer", "Football
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Tests", "Football.Tests\Football.Tests.csproj", "{E6D446C8-F0E4-464C-BA43-9E42C55BA29A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Footbal.View", "Footbal.View\Footbal.View.csproj", "{D3A5C205-A964-430E-8B97-9BBBCDAF036D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,16 @@ Global
 		{E6D446C8-F0E4-464C-BA43-9E42C55BA29A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E6D446C8-F0E4-464C-BA43-9E42C55BA29A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E6D446C8-F0E4-464C-BA43-9E42C55BA29A}.Release|x86.ActiveCfg = Release|Any CPU
+		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
