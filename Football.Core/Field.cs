@@ -9,32 +9,36 @@
 
         private readonly float _height;
 
-        private readonly float _lineWidth;
+        private readonly float _line;
 
-        float Width
+        private readonly float _centerDiametr;
+
+        private readonly float _centerCircleDiametr;
+
+        public float Width
         {
             get { return _width; }
         }
 
-        float Height
+        public float Height
         {
             get { return _height; }
         }
 
-        float LineWidth
+        public float Line
         {
-            get { return _lineWidth; }
+            get { return _line; }
         }
 
-        public Field(float width, float height, float lineWidth)
+        public Field(float width, float height, float line)
         {
             Contract.Requires<ArgumentException>(width > 0);
             Contract.Requires<ArgumentException>(height > 0);
-            Contract.Requires<ArgumentException>(lineWidth > 0);
+            Contract.Requires<ArgumentException>(line > 0);
 
             _width = width;
             _height = height;
-            _lineWidth = lineWidth;
+            _line = line;
         }
     }
 }

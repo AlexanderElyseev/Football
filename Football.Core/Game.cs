@@ -41,7 +41,7 @@
             BallPosition ballPosition = InitBallPosition(_ball);
             TeamPosition firstTeamPosition = InitTeamPosition(_firstTeam);
             TeamPosition secondTeamPosition = InitTeamPosition(_secondTeam);
-            GamePosition currentPosition = new GamePosition(firstTeamPosition, secondTeamPosition, ballPosition);
+            GamePosition currentPosition = new GamePosition(_field, firstTeamPosition, secondTeamPosition, ballPosition);
 
             while (true)
             {

@@ -113,6 +113,8 @@
     <Compile Include="Ball.cs" />
     <Compile Include="BallPosition.cs" />
     <Compile Include="BallSpeed.cs" />
+    <Compile Include="Field.cs" />
+    <Compile Include="FieldSizes.cs" />
     <Compile Include="GameRunnerContract.cs" />
     <Compile Include="SimpleGameRunner.cs" />
     <Compile Include="GameAction.cs" />

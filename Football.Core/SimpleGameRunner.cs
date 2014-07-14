@@ -21,7 +21,7 @@
             var newSecondTeamPosition = GetNewTeamPosition(currentPosition.SecondTeamPosition, gameAction.SecondTeamAction);
             var newBallPosition = GetNewBallPosition(currentPosition.BallPosition);
 
-            return new GamePosition(newFirstTeamPosition, newSecondTeamPosition, newBallPosition);
+            return new GamePosition(currentPosition.Field, newFirstTeamPosition, newSecondTeamPosition, newBallPosition);
         }
 
         private static TeamPosition GetNewTeamPosition(TeamPosition currentTeamPosition, TeamAction secondTeamAction)
