@@ -1,29 +1,28 @@
-﻿namespace Footbal.View
+﻿namespace Footbal.Visualization
 {
     using System.Drawing;
 
     using Football.Core;
 
-    public sealed class BitmapVizualizer
+    public sealed class BitmapVisualizer
     {
-        private struct Scale
+        enum ScaleType
         {
-            public readonly float Width;
-
-            public readonly float Height;
-
-            public Scale(float width, float height)
-            {
-                Width = width;
-                Height = height;
-            }
+            FitWidth,
+            FitHeight,
+            Fit
         }
 
+        internal static PixelsPerMeter GetScale(Field field)
+        {
+            return new PixelsPerMeter(1, 1);
+        }
+        
         private readonly int _width;
 
         private readonly int _height;
 
-        public BitmapVizualizer(int width, int height)
+        public BitmapVisualizer(int width, int height)
         {
             _width = width;
             _height = height;
@@ -43,9 +42,9 @@
             return bitmap;
         }
 
-        private Scale GetPixPerMeterScale(Field field)
+        private PixelsPerMeter GetPixPerMeterScale(Field field)
         {
-            return new Scale(_width / field.Width, _height / field.Height);
+            return new PixelsPerMeter(_width / field.Width, _height / field.Height);
         }
 
         private static int GetPixForLengthInMeters(float pixPerMeter, float lengthInMeters)

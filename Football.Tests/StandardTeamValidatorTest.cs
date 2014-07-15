@@ -14,7 +14,7 @@
         {
             var players = new Player[10];
 
-            var team = new Team(players);
+            var team = new Team(players, null);
             var validator = new StandardTeamValidator();
 
             Assert.IsFalse(validator.Validate(team));
@@ -34,7 +34,7 @@
             for (int i = 0; i < 11; i++)
                 players[i] = new Player("Player" + i);
 
-            var team = new Team(players);
+            var team = new Team(players, null);
             var validator = new StandardTeamValidator();
 
             Assert.IsTrue(validator.Validate(team));

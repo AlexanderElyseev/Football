@@ -7,8 +7,8 @@
     <ProjectGuid>{D3A5C205-A964-430E-8B97-9BBBCDAF036D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Footbal.View</RootNamespace>
-    <AssemblyName>Footbal.View</AssemblyName>
+    <RootNamespace>Footbal.Visualization</RootNamespace>
+    <AssemblyName>Footbal.Visualization</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,8 +35,10 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BitmapVizualizer.cs" />
+    <Compile Include="BitmapVisualizer.cs" />
+    <Compile Include="ScaleCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PixelsPerMeter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Football.Core\Football.Core.csproj">

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Viewer", "Football
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Tests", "Football.Tests\Football.Tests.csproj", "{E6D446C8-F0E4-464C-BA43-9E42C55BA29A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Footbal.View", "Footbal.View\Footbal.View.csproj", "{D3A5C205-A964-430E-8B97-9BBBCDAF036D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Footbal.Visualization", "Footbal.Visualization\Footbal.Visualization.csproj", "{D3A5C205-A964-430E-8B97-9BBBCDAF036D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

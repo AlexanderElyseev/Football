@@ -108,6 +108,7 @@
             this.m_btnStart.TabIndex = 0;
             this.m_btnStart.Text = "Start";
             this.m_btnStart.UseVisualStyleBackColor = true;
+            this.m_btnStart.Click += new System.EventHandler(this.m_btnStart_Click);
             // 
             // m_btnStop
             // 
@@ -132,9 +133,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.m_statusStatus,
             this.m_statusTime});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 601);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 780);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(792, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1500, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -178,7 +179,7 @@
             this.m_tabListView.Location = new System.Drawing.Point(12, 98);
             this.m_tabListView.Name = "m_tabListView";
             this.m_tabListView.SelectedIndex = 0;
-            this.m_tabListView.Size = new System.Drawing.Size(768, 500);
+            this.m_tabListView.Size = new System.Drawing.Size(1476, 679);
             this.m_tabListView.TabIndex = 6;
             // 
             // m_tabTopView
@@ -187,7 +188,7 @@
             this.m_tabTopView.Location = new System.Drawing.Point(4, 22);
             this.m_tabTopView.Name = "m_tabTopView";
             this.m_tabTopView.Padding = new System.Windows.Forms.Padding(3);
-            this.m_tabTopView.Size = new System.Drawing.Size(760, 474);
+            this.m_tabTopView.Size = new System.Drawing.Size(1468, 653);
             this.m_tabTopView.TabIndex = 0;
             this.m_tabTopView.Text = "Top view";
             this.m_tabTopView.UseVisualStyleBackColor = true;
@@ -198,8 +199,7 @@
             this.m_imgTopView.InitialImage = null;
             this.m_imgTopView.Location = new System.Drawing.Point(3, 3);
             this.m_imgTopView.Name = "m_imgTopView";
-            this.m_imgTopView.Size = new System.Drawing.Size(754, 468);
-            this.m_imgTopView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.m_imgTopView.Size = new System.Drawing.Size(1462, 647);
             this.m_imgTopView.TabIndex = 0;
             this.m_imgTopView.TabStop = false;
             // 
@@ -665,7 +665,7 @@
             this._groupBoxActions.Controls.Add(this.m_btnPause);
             this._groupBoxActions.Location = new System.Drawing.Point(459, 11);
             this._groupBoxActions.Name = "_groupBoxActions";
-            this._groupBoxActions.Size = new System.Drawing.Size(321, 81);
+            this._groupBoxActions.Size = new System.Drawing.Size(1029, 81);
             this._groupBoxActions.TabIndex = 7;
             this._groupBoxActions.TabStop = false;
             this._groupBoxActions.Text = "Action";
@@ -674,7 +674,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 623);
+            this.ClientSize = new System.Drawing.Size(1500, 802);
             this.Controls.Add(this._groupBoxActions);
             this.Controls.Add(this.m_tabListView);
             this.Controls.Add(this._groupBoxViewerSettings);
