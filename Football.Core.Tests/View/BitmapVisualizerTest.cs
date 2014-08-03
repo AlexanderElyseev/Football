@@ -1,7 +1,5 @@
 ﻿namespace Football.Tests.View
 {
-    using Footbal.View;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

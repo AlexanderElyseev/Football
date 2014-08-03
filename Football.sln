@@ -7,9 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Core", "Football.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Viewer", "Football.Viewer\Football.Viewer.csproj", "{BDB82E5C-E211-42FA-929D-237ADFF8DF3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Tests", "Football.Tests\Football.Tests.csproj", "{E6D446C8-F0E4-464C-BA43-9E42C55BA29A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Core.Tests", "Football.Core.Tests\Football.Core.Tests.csproj", "{E6D446C8-F0E4-464C-BA43-9E42C55BA29A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Footbal.Visualization", "Footbal.Visualization\Footbal.Visualization.csproj", "{D3A5C205-A964-430E-8B97-9BBBCDAF036D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Visualization.Tests", "Football.Visualization.Tests\Football.Visualization.Tests.csproj", "{59469CAB-955E-4E77-B5C2-56F252E7C4D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4481798B-8A4C-474A-882C-BF89130EE768}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,8 +65,22 @@ Global
 		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D3A5C205-A964-430E-8B97-9BBBCDAF036D}.Release|x86.ActiveCfg = Release|Any CPU
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E6D446C8-F0E4-464C-BA43-9E42C55BA29A} = {4481798B-8A4C-474A-882C-BF89130EE768}
+		{59469CAB-955E-4E77-B5C2-56F252E7C4D6} = {4481798B-8A4C-474A-882C-BF89130EE768}
 	EndGlobalSection
 EndGlobal
