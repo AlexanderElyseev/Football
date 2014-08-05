@@ -46,69 +46,151 @@
 
         private void DrawField(Graphics ctx, Field field)
         {
-            var pixPerMeter = GetPixPerMeterScale(field);
-
-            var centerWidth = (int)(_width / 2.0);
-            var centerHeight = (int)(_height / 2.0);
+            var converter = new CoordinateConverter(_width, _height, field);
 
             using (var lineBrush = new SolidBrush(Color.White))
             using (var fieldBrush = new SolidBrush(Color.Green))
-            using (var linePen = new Pen(lineBrush, GetPixForLengthInMeters(pixPerMeter.Width, field.Line)))
+            using (var linePen = new Pen(lineBrush, 2))
             {
-                // Filling all field.
+                // Field.
                 ctx.FillRectangle(fieldBrush, 0, 0, _width, _height);
-
-                // Field borders.
-                ctx.DrawLine(linePen, 0, 0, 0, _height);
-                ctx.DrawLine(linePen, 0, _height, _width, _height);
-                ctx.DrawLine(linePen, _width, _height, _width, 0);
-                ctx.DrawLine(linePen, _width, 0, 0, 0);
+                ctx.DrawRectangle(
+                    linePen,
+                    converter.ToXpx(-field.Width / 2),
+                    converter.ToYpx(field.Height / 2),
+                    converter.ToX(field.Width),
+                    converter.ToY(field.Height));
 
                 // Middle lain.
-                ctx.DrawLine(linePen, centerWidth, 0, centerWidth, _height);
+                ctx.DrawLine(
+                    linePen,
+                    converter.ToXpx(0),
+                    converter.ToYpx(field.Height / 2),
+                    converter.ToXpx(0),
+                    converter.ToYpx(-field.Height / 2));
 
                 // Center circle.
-                var centerCircleRadiusX = (int)(9.15 * pixPerMeter.Width);
-                var centerCircleRadiusY = (int)(9.15 * pixPerMeter.Height);
-                ctx.DrawEllipse(linePen, centerWidth - centerCircleRadiusX, centerHeight - centerCircleRadiusY, centerCircleRadiusX * 2, centerCircleRadiusY * 2);
+                ctx.DrawEllipse(
+                    linePen,
+                    converter.ToXpx(-9.15),
+                    converter.ToYpx(9.15),
+                    converter.ToX(18.3),
+                    converter.ToY(18.3));
 
                 // Center spot.
-                var centerSpotRadiusX = (int)(0.3 * pixPerMeter.Width);
-                var centerSpotRadiusY = (int)(0.3 * pixPerMeter.Height);
-                ctx.FillEllipse(lineBrush, centerWidth - centerSpotRadiusX, centerHeight - centerSpotRadiusY, centerSpotRadiusX * 2, centerSpotRadiusY * 2);
+                ctx.FillEllipse(lineBrush,
+                    converter.ToXpx(-0.3),
+                    converter.ToYpx(0.3),
+                    converter.ToX(0.6),
+                    converter.ToY(0.6));
 
                 // Penalty circles.
-                var penaltyCircleWidth = 11 * pixPerMeter.Width;
-                ctx.DrawEllipse(linePen, penaltyCircleWidth - centerCircleRadiusX, centerHeight - centerCircleRadiusY, centerCircleRadiusX * 2, centerCircleRadiusY * 2);
-                ctx.DrawEllipse(linePen, _width - penaltyCircleWidth - centerCircleRadiusX, centerHeight - centerCircleRadiusY, centerCircleRadiusX * 2, centerCircleRadiusY * 2);
+                ctx.DrawEllipse(linePen,
+                    converter.ToXpx(-field.Width / 2 + 11 - 9.15),
+                    converter.ToYpx(9.15),
+                    converter.ToX(18.3),
+                    converter.ToY(18.3));
+                ctx.DrawEllipse(linePen,
+                    converter.ToXpx(field.Width / 2 - 11 - 9.15),
+                    converter.ToYpx(9.15),
+                    converter.ToX(18.3),
+                    converter.ToY(18.3));
 
                 // Penalty areas.
-                var penaltyAreaWidth = (int)(16.5 * pixPerMeter.Width);
-                var penaltyAreaHeight = (int)(40.3 * pixPerMeter.Height);
-                ctx.FillRectangle(fieldBrush, 0, centerHeight - penaltyAreaHeight / 2, penaltyAreaWidth, penaltyAreaHeight);
-                ctx.DrawRectangle(linePen, 0, centerHeight - penaltyAreaHeight / 2, penaltyAreaWidth, penaltyAreaHeight);
-                ctx.FillRectangle(fieldBrush, _width - penaltyAreaWidth, centerHeight - penaltyAreaHeight / 2, penaltyAreaWidth, penaltyAreaHeight);
-                ctx.DrawRectangle(linePen, _width - penaltyAreaWidth, centerHeight - penaltyAreaHeight / 2, penaltyAreaWidth, penaltyAreaHeight);
+                ctx.FillRectangle(
+                    fieldBrush,
+                    converter.ToXpx(-field.Width / 2),
+                    converter.ToYpx(20.15),
+                    converter.ToX(16.5),
+                    converter.ToY(40.3));
+                ctx.DrawRectangle(
+                    linePen,
+                    converter.ToXpx(-field.Width / 2),
+                    converter.ToYpx(20.15),
+                    converter.ToX(16.5),
+                    converter.ToY(40.3));
+                ctx.FillRectangle(
+                    fieldBrush,
+                    converter.ToXpx(field.Width / 2 - 16.5),
+                    converter.ToYpx(20.15),
+                    converter.ToX(16.5),
+                    converter.ToY(40.3));
+                ctx.DrawRectangle(
+                    linePen,
+                    converter.ToXpx(field.Width / 2 - 16.5),
+                    converter.ToYpx(20.15),
+                    converter.ToX(16.5),
+                    converter.ToY(40.3));
 
                 // Penalty points.
-                ctx.FillEllipse(lineBrush, penaltyCircleWidth - centerSpotRadiusX, centerHeight - centerSpotRadiusY, centerSpotRadiusX * 2, centerSpotRadiusY * 2);
-                ctx.FillEllipse(lineBrush, _width - penaltyCircleWidth - centerSpotRadiusX, centerHeight - centerSpotRadiusY, centerSpotRadiusX * 2, centerSpotRadiusY * 2);
+                ctx.FillEllipse(lineBrush,
+                    converter.ToXpx(-field.Width / 2 + 11),
+                    converter.ToYpx(0.3),
+                    converter.ToX(0.6),
+                    converter.ToY(0.6));
+                ctx.FillEllipse(lineBrush,
+                    converter.ToXpx(field.Width / 2 - 11),
+                    converter.ToYpx(0.3),
+                    converter.ToX(0.6),
+                    converter.ToY(0.6));
 
                 // Goal areas.
-                var goalAreaWidth = (int)(5.5 * pixPerMeter.Width);
-                var goalAreaHeight = (int)(16.5 * pixPerMeter.Height);
-                ctx.DrawRectangle(linePen, 0, centerHeight - goalAreaHeight / 2, goalAreaWidth, goalAreaHeight);
-                ctx.DrawRectangle(linePen, _width - goalAreaWidth, centerHeight - goalAreaHeight / 2, goalAreaWidth, goalAreaHeight);
+                ctx.DrawRectangle(
+                    linePen,
+                    converter.ToXpx(-field.Width / 2),
+                    converter.ToYpx(8.25),
+                    converter.ToX(5.5),
+                    converter.ToY(16.5));
+                ctx.DrawRectangle(
+                    linePen,
+                    converter.ToXpx(field.Width / 2 - 5.5),
+                    converter.ToYpx(8.25),
+                    converter.ToX(5.5),
+                    converter.ToY(16.5));
 
-                // TODO: Goals.
-                
+                // Goals.
+                ctx.DrawRectangle(
+                    linePen,
+                    converter.ToXpx(-field.Width / 2 - field.GoalWidth),
+                    converter.ToYpx(field.GoalHeight / 2),
+                    converter.ToX(field.GoalWidth),
+                    converter.ToY(field.GoalHeight));
+                ctx.DrawRectangle(
+                    linePen,
+                    converter.ToXpx(field.Width / 2),
+                    converter.ToYpx(field.GoalHeight / 2),
+                    converter.ToX(field.GoalWidth),
+                    converter.ToY(field.GoalHeight));
+
                 // Corners.
-                var cornerCircleWidth = (int)(1 * pixPerMeter.Width);
-                var cornerCircleHeight = (int)(1 * pixPerMeter.Height);
-                ctx.DrawArc(linePen, -cornerCircleWidth, -cornerCircleHeight, cornerCircleWidth * 2, cornerCircleHeight * 2, 0, 90);
-                ctx.DrawArc(linePen, _width - cornerCircleWidth, -cornerCircleHeight, cornerCircleWidth * 2, cornerCircleHeight * 2, 90, 90);
-                ctx.DrawArc(linePen, _width - cornerCircleWidth, _height - cornerCircleHeight, cornerCircleWidth * 2, cornerCircleHeight * 2, 180, 90);
-                ctx.DrawArc(linePen, -cornerCircleWidth, _height - cornerCircleHeight, cornerCircleWidth * 2, cornerCircleHeight * 2, 270, 90);
+                ctx.DrawArc(linePen,
+                    converter.ToXpx(-field.Width / 2 - 1),
+                    converter.ToYpx(field.Height / 2 + 1),
+                    converter.ToX(2),
+                    converter.ToY(2),
+                    0,
+                    90);
+                ctx.DrawArc(linePen,
+                    converter.ToXpx(field.Width / 2 - 1),
+                    converter.ToYpx(field.Height / 2 + 1),
+                    converter.ToX(2),
+                    converter.ToY(2),
+                    90,
+                    90);
+                ctx.DrawArc(linePen,
+                    converter.ToXpx(field.Width / 2 - 1),
+                    converter.ToYpx(-field.Height / 2 + 1),
+                    converter.ToX(2),
+                    converter.ToY(2),
+                    180,
+                    90);
+                ctx.DrawArc(linePen,
+                    converter.ToXpx(-field.Width / 2 - 1),
+                    converter.ToYpx(-field.Height / 2 + 1),
+                    converter.ToX(2),
+                    converter.ToY(2),
+                    270,
+                    90);
             }
         }
 
