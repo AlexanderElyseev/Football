@@ -7,8 +7,14 @@
 
     public sealed class BitmapVisualizer
     {
+        /// <summary>
+        /// Width of the result bitmap in pixels.
+        /// </summary>
         private readonly int _width;
 
+        /// <summary>
+        /// Height of the result bitmap in pixels. 
+        /// </summary>
         private readonly int _height;
 
         public BitmapVisualizer(int width, int height)
@@ -25,23 +31,14 @@
             using (Pen firstTeamPen = new Pen(Color.Red))
             using (Pen secondTeamPen = new Pen(Color.Green))
             {
+                // TODO: cache field
                 DrawField(ctx, position.Field);
+
                 DrawCommands(ctx, firstTeamPen, position.FirstTeamPosition);
                 DrawCommands(ctx, secondTeamPen, position.FirstTeamPosition);
             }
 
             return bitmap;
-        }
-
-        private PixelsPerMeter GetPixPerMeterScale(Field field)
-        {
-            return new PixelsPerMeter(_width / field.Width, _height / field.Height);
-        }
-
-        private static int GetPixForLengthInMeters(float pixPerMeter, float lengthInMeters)
-        {
-            var pixs = pixPerMeter * lengthInMeters;
-            return pixs < 1 ? 1 : (int)pixs;
         }
 
         private void DrawField(Graphics ctx, Field field)
