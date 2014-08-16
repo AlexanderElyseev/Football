@@ -2,8 +2,8 @@
 {
     public struct PlayerPosition
     {
-        private float x;
+        public float x;
 
-        private float y;
+        public float y;
     }
 }

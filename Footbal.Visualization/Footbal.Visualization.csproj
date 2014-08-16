@@ -36,9 +36,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitmapVisualizer.cs" />
-    <Compile Include="ScaleCalculator.cs" />
+    <Compile Include="CoordinateConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PixelsPerMeter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Football.Core\Football.Core.csproj">
