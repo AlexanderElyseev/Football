@@ -1,6 +1,6 @@
 ﻿namespace Football.Core
 {
-    static class FieldSizes
+    static class StadardFieldSizes
     {
         public const float MinWidth = 90f;
         public const float MaxWidth = 120f;
