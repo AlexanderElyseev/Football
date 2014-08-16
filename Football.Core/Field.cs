@@ -30,6 +30,16 @@
             get { return _line; }
         }
 
+        public double GoalWidth
+        {
+            get { return 2.44; }
+        }
+
+        public double GoalHeight
+        {
+            get { return 7.32; }
+        }
+
         public Field(float width, float height, float line)
         {
             Contract.Requires<ArgumentException>(width > 0);
