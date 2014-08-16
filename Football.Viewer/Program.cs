@@ -4,6 +4,8 @@ using Viewer.Forms;
 
 namespace Viewer
 {
+    using Ninject;
+
     static class Program
     {
         /// <summary>
@@ -14,7 +16,11 @@ namespace Viewer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            using (IKernel kernel = new StandardKernel())
+            {
+                Application.Run(new MainForm());    
+            }
         }
     }
 }
