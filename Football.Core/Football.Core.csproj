@@ -114,8 +114,8 @@
     <Compile Include="BallPosition.cs" />
     <Compile Include="BallSpeed.cs" />
     <Compile Include="Field.cs" />
-    <Compile Include="FieldSizes.cs" />
-    <Compile Include="GameRunnerContract.cs" />
+    <Compile Include="StadardFieldSizes.cs" />
+    <Compile Include="Contracts\GameRunnerContract.cs" />
     <Compile Include="SimpleGameRunner.cs" />
     <Compile Include="GameAction.cs" />
     <Compile Include="GamePosition.cs" />
@@ -139,9 +139,10 @@
     <Compile Include="PlayerSpeed.cs" />
     <Compile Include="StandardTeamValidator.cs" />
     <Compile Include="Team.cs" />
-    <Compile Include="TeamBuilderContract.cs" />
-    <Compile Include="TeamValidatorContract.cs" />
+    <Compile Include="Contracts\TeamBuilderContract.cs" />
+    <Compile Include="Contracts\TeamValidatorContract.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
