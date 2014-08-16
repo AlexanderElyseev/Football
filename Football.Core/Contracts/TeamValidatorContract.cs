@@ -1,4 +1,4 @@
-﻿namespace Football.Core
+﻿namespace Football.Core.Contracts
 {
     using System;
     using System.Diagnostics.Contracts;
